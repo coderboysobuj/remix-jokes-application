@@ -2,6 +2,7 @@ import type { LinksFunction, V2_MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import stylesUrl from '~/styles/index.css';
 
+
 export const meta: V2_MetaFunction = () => {
   return [
     { title: "Remix Jokes" },
@@ -34,3 +35,4 @@ export default function Index() {
     </div>
   );
 }
+
