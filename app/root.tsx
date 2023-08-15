@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, V2_MetaFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   Links,
@@ -28,7 +28,16 @@ export const links: LinksFunction = () => [
   },
 ];
 
-function Document({ children, title = "Joke app" }: PropsWithChildren<{ title?: string }>) {
+export const meta: V2_MetaFunction = () => {
+  const description = "remix application by coderboysobuj";
+  return [
+    { name: "description", content: description },
+    { name: "twitter:description", content: description },
+    { title: "Joke application" },
+  ]
+}
+
+function Document({ children, title }: PropsWithChildren<{ title?: string }>) {
   return (
     <html lang="en">
       <head>
@@ -37,8 +46,20 @@ function Document({ children, title = "Joke app" }: PropsWithChildren<{ title?: 
           name="viewport"
           content="width=device-width,initial-scale=1"
         />
-        <title>{title}</title>
+        <meta name="keywords" content="Remix,jokes,coderboysobuj" />
+        <meta
+          name="twitter:image"
+          content="https://remix-jokes.lol/social.png"
+        />
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+        />
+        <meta name="twitter:creator" content="@CoderJisan" />
+        <meta name="twitter:site" content="@CoderJisan" />
+        <meta name="twitter:title" content="Mohammad Sobuj" />
         <Meta />
+        {title ? <title>{title}</title> : null}
         <Links />
       </head>
       <body>

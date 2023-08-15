@@ -1,4 +1,4 @@
-import type { LinksFunction, ActionArgs } from "@remix-run/node";
+import type { LinksFunction, ActionArgs, V2_MetaFunction } from "@remix-run/node";
 import { Link, useSearchParams, useActionData } from "@remix-run/react";
 
 
@@ -14,6 +14,15 @@ export const links: LinksFunction = () => [
     href: stylesUrl
   }
 ]
+
+export const meta: V2_MetaFunction = () => {
+  const description = "remix application by coderboysobuj";
+  return [
+    { name: "description", content: description },
+    { name: "twitter:description", content: description },
+    { title: "Joke application - login" },
+  ]
+}
 
 function validateUsername(username: string) {
   if (username.length < 3) {
