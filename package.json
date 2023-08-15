@@ -28,6 +28,9 @@
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4"
   },
+  "prisma": {
+    "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
+  },
   "engines": {
     "node": ">=14.0.0"
   }
